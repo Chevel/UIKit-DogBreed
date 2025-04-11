@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  DogBreed
+
+  Created by Matej on 27/08/2022.
+  Copyright © 2022 Matej Kokosinek. All rights reserved.
+*/
+
+"home_favourites_button_title" = "Favoritter";
+
+"favourites_filter_menu_title" = "Filtrer efter";
+"favourites_filter_menu_option_close" = "Lukke";
+
+"favourites_screen_title" = "Favoritter";

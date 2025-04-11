@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  DogBreed
+
+  Created by Matej on 27/08/2022.
+  Copyright © 2022 Matej Kokosinek. All rights reserved.
+*/
+
+"home_favourites_button_title" = "Favourites";
+
+"favourites_filter_menu_title" = "Filter by:";
+"favourites_filter_menu_option_close" = "Close";
+
+"favourites_screen_title" = "Favourites";
+
