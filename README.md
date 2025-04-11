@@ -6,16 +6,20 @@
 
 An example UIKit project showing dogs 🐕
 
+## Min. iOS version
+
+- iOS14+
+
 ## Features
 
 - UIKit
 - Swift
 - async/await
 - CoreData
-- Cache
+- Caching
 - MVVM
 - Unit tests with XCTest
-- NetworkService with mock support for testing.
+- Network service with mock support for testing.
 
 ## Installation
 
