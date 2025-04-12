@@ -10,7 +10,7 @@ An example UIKit project showing dogs 🐕
 
 - iOS14+
 
-## Features
+## Tech stack
 
 - UIKit
 - Swift
