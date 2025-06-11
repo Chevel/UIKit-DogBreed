@@ -10,6 +10,10 @@ import UIKit
 
 extension UIImage {
 
+    static var warning: UIImage {
+        return UIImage(systemName: "exclamationmark.triangle.fill")!.withTintColor(.gray)
+    }
+
     static var placeholder: UIImage {
         return UIImage(systemName: "photo")!.withTintColor(.gray)
     }
