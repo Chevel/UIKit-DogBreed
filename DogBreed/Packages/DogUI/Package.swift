@@ -5,11 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "DogUIPackage",
+    platforms: [
+        .iOS(.v14)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DogUILib",
-            targets: ["DogUIScreen", "DogUIComponents"]
+            targets: ["DogUIScreen", "DogUIComponents", "DogUIIcons"]
         ),
     ],
     dependencies: [
@@ -23,6 +26,9 @@ let package = Package(
         ),
         .target(
             name: "DogUIComponents"
+        ),
+        .target(
+            name: "DogUIIcons"
         ),
         .testTarget(
             name: "DogUITests",

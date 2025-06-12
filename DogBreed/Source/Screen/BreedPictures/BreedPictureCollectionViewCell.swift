@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DogUIIcons
 import DogUIComponents
 
 final class BreedPictureCollectionViewCell: UICollectionViewCell {
