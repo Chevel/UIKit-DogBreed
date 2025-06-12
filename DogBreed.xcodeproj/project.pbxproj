@@ -71,6 +71,8 @@
 
 /* Begin PBXFileReference section */
 		D25BED98291FDE2F00F8745B /* Bundle+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Configuration.swift"; sourceTree = "<group>"; };
+		D298AE892DFACCF50094732B /* DogCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogCore; sourceTree = "<group>"; };
+		D298AE8A2DFACD140094732B /* DogUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogUI; sourceTree = "<group>"; };
 		D2CF49E728B9FF770064FE87 /* DogBreed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF49EA28B9FF770064FE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF49EC28B9FF770064FE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +120,6 @@
 		D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Identifier.swift"; sourceTree = "<group>"; };
 		D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D2E63B772DFAAF5900984BAF /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
-		D2FDBDB72DFABA7E006ADB44 /* DogCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogCore; sourceTree = "<group>"; };
-		D2FDBDB82DFABD74006ADB44 /* DogUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,8 +412,8 @@
 		D2FDBDB62DFABA6C006ADB44 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				D2FDBDB82DFABD74006ADB44 /* DogUI */,
-				D2FDBDB72DFABA7E006ADB44 /* DogCore */,
+				D298AE8A2DFACD140094732B /* DogUI */,
+				D298AE892DFACCF50094732B /* DogCore */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
