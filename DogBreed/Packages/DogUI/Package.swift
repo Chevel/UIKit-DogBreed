@@ -4,26 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "DogUI",
+    name: "DogUIPackage",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "DogUI",
-            targets: ["DogUI"]
+            name: "DogUILib",
+            targets: ["DogUIScreen", "DogUIComponents"]
         ),
+    ],
+    dependencies: [
+        .package(path: "DogCore")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DogUI",
-            dependencies: [
-                .product(name: "DogCore", package: "DogCore")
-            ]
+            name: "DogUIScreen"
+        ),
+        .target(
+            name: "DogUIComponents"
         ),
         .testTarget(
             name: "DogUITests",
-            dependencies: ["DogUI"]
-        ),
+            dependencies: ["DogUIScreen", "DogUIComponents"]
+        )
     ]
 )

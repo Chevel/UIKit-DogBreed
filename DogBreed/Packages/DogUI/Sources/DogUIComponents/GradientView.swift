@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GradientView: UIView {
+final public class GradientView: UIView {
     
     // MARK: - UI
     
@@ -25,7 +25,7 @@ final class GradientView: UIView {
     
     // MARK: - Init
 
-    init() {
+    public init() {
         super.init(frame: .zero)
         
         gradientLayer.frame = bounds
@@ -38,12 +38,11 @@ final class GradientView: UIView {
     
     // MARK: - Lifecycle
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         gradientLayer.removeFromSuperlayer()
         gradientLayer.frame = bounds
         layer.insertSublayer(gradientLayer, at: 0)
     }
-
 }
