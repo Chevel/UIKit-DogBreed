@@ -9,6 +9,8 @@
 import UIKit
 import DogCore
 import CoreData
+import DogNetwork
+import DogBreedContainer
 
 @main
 class AppDelegate: UIResponder {
@@ -16,7 +18,8 @@ class AppDelegate: UIResponder {
     // MARK: - Properties
 
     let dependencies = Dependencies(
-        dataManager: DataManager(databaseManager: CoreDataManager() as DoggyDatabase)
+        dataManager: DataManager(databaseManager: CoreDataManager() as DoggyDatabase),
+        networkService: DogNetworkService(session: .shared)
     )
 }
 
