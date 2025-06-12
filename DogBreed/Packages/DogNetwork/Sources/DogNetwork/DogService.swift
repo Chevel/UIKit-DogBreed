@@ -24,9 +24,9 @@ public final actor DogNetworkService: DogService {
     public init(session: URLSession) {
         self.session = session
     }
-    
+
     // MARK: - Breeds
-    
+
     public func breeds() async throws -> [Breed] {
         guard let request = Self.buildRequest(for: .breeds) else {
             throw ParseError()
