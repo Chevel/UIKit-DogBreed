@@ -8,6 +8,8 @@
 
 import UIKit
 import Combine
+import DogData
+import DogCore
 
 final class BreedsViewController: UIViewController {
     
@@ -33,7 +35,7 @@ final class BreedsViewController: UIViewController {
     // MARK: - Data
 
     private var subscriberTokens = Set<AnyCancellable>()
-    private var viewModel = BreedsViewModel()
+    private var viewModel: BreedsViewModel
     private lazy var dataSource: UITableViewDiffableDataSource<Section, Breed> = {
         return UITableViewDiffableDataSource<Section, Breed>(tableView: tableView) { [weak self]
             (tableView: UITableView, indexPath: IndexPath, item: Breed) -> UITableViewCell? in
@@ -51,6 +53,16 @@ final class BreedsViewController: UIViewController {
     }
     
     // MARK: - Lifecycle
+            
+    init(dependencies: Dependencies) {
+        self.viewModel = BreedsViewModel(dataManager: dependencies.dataManager)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
