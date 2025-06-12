@@ -8,11 +8,12 @@
 
 import Foundation
 
-extension Bundle {
+public extension Bundle {
     
     enum Configuration {
-        enum Scene {
-            static var configurationName: String {
+        
+        public enum Scene {
+            public static var configurationName: String {
                 guard
                     let appManifest = Bundle.main.object(forInfoDictionaryKey: "UIApplicationSceneManifest") as? Dictionary<String, Any>,
                     let sceneConfig = appManifest["UISceneConfigurations"] as? Dictionary<String, Any>,
@@ -25,8 +26,9 @@ extension Bundle {
                 return name
             }
         }
-        enum CoreData {
-            static var persistenceContainerName: String {
+        
+        public enum CoreData {
+            public static var persistenceContainerName: String {
                 guard
                     let appManifest = Bundle.main.object(forInfoDictionaryKey: "UIApplicationSceneManifest") as? Dictionary<String, Any>,
                     let sceneConfig = appManifest["UISceneConfigurations"] as? Dictionary<String, Any>,
@@ -41,5 +43,4 @@ extension Bundle {
             }
         }
     }
-
 }

@@ -13,5 +13,4 @@ public extension UserDefaults {
     enum Keys: String {
         case favouritePictures
     }
-    
 }
