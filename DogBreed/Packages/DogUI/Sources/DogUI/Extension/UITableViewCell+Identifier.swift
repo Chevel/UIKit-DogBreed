@@ -8,8 +8,7 @@
 
 import UIKit
 
-extension UITableViewCell {
+public extension UITableViewCell {
 
     class var identifier: String { String(describing: "\(self)") }
-
 }

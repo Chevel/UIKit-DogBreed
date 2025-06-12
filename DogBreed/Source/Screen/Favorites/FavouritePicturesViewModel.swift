@@ -6,6 +6,7 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogCore
 import Foundation
 
 final class FavouritePicturesViewModel {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
 
     static var warning: UIImage {
         return UIImage(systemName: "exclamationmark.triangle.fill")!.withTintColor(.gray)
@@ -41,6 +41,4 @@ extension UIImage {
     static var checkmarkIcon: UIImage {
         return UIImage(systemName: "checkmark")!
     }
-
 }
-

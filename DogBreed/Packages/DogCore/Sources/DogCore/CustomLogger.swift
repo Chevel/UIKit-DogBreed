@@ -9,16 +9,16 @@
 import Foundation
 import OSLog
 
-final class CustomLogger {
+public final class CustomLogger {
 
     // MARK: - Event
 
-    enum Event {
+    public enum Event {
         case imageCache
         case network
         case dataBase
 
-        var symbol: String {
+        public var symbol: String {
             switch self {
             case .imageCache: return "🖼"
             case .network: return "📡"
@@ -33,13 +33,11 @@ final class CustomLogger {
     
     // MARK: - Interface
 
-    static func log(type: Event, message: String, error: Error? = nil) {
+    public static func log(type: Event, message: String, error: Error? = nil) {
         if let error = error {
             Logger().log(level: .error, "\(type.symbol) - \(message) with error: \(error.localizedDescription)")
         } else {
             Logger().log(level: .info, "\(type.symbol) - SUCCESS - \(message)")
         }
     }
-    
 }
-

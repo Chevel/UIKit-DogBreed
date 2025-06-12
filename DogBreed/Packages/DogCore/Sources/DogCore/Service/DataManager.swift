@@ -6,17 +6,10 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogData
 import Foundation
 
-protocol DoggyDatabase: Actor {
-    
-    func create(breeds: [Breed]) async throws
-    func loadBreeds() async throws -> [Breed]
-}
-
-final actor DataManager {
-
-    fileprivate(set) static var shared: DataManager!
+public final actor DataManager {
 
     // MARK: - Properties
     
@@ -24,25 +17,27 @@ final actor DataManager {
 
     // MARK: - Init
 
-    private init(databaseManager: DoggyDatabase) {
+    public init(databaseManager: DoggyDatabase) {
         self.databaseManager = databaseManager
     }
-    
-    static func setup(with databaseManager: DoggyDatabase) {
-        Self.shared = DataManager(databaseManager: databaseManager)
-    }
-    
+
     // MARK: - Update
 
-    func update(breeds: [Breed]) async throws {
+    public func update(breeds: [Breed]) async throws {
         try await databaseManager.create(breeds: breeds)
     }
     
     // MARK: - Load
     
-    func loadBreeds() async throws -> [Breed] {
+    public func loadBreeds() async throws -> [Breed] {
         try await databaseManager
             .loadBreeds()
             .sorted { $0.name < $1.name }
+    }
+    
+    // MARK: - Save/Persist
+    
+    public func savePendingChanges() async {
+        await databaseManager.save()
     }
 }

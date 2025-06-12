@@ -6,8 +6,11 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogUI
 import UIKit
 import Combine
+import DogData
+import DogCore
 
 final class BreedsViewController: UIViewController {
     
@@ -18,7 +21,7 @@ final class BreedsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.rowHeight = 50
         view.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
-        view.register(BreedTableViewCell.self, forCellReuseIdentifier: BreedTableViewCell.identifier)
+        view.register(DogUI.Breeds.TableViewCell.self, forCellReuseIdentifier: DogUI.Breeds.TableViewCell.identifier)
         return view
     }()
 
@@ -33,7 +36,7 @@ final class BreedsViewController: UIViewController {
     // MARK: - Data
 
     private var subscriberTokens = Set<AnyCancellable>()
-    private var viewModel = BreedsViewModel()
+    private var viewModel: BreedsViewModel
     private lazy var dataSource: UITableViewDiffableDataSource<Section, Breed> = {
         return UITableViewDiffableDataSource<Section, Breed>(tableView: tableView) { [weak self]
             (tableView: UITableView, indexPath: IndexPath, item: Breed) -> UITableViewCell? in
@@ -51,6 +54,16 @@ final class BreedsViewController: UIViewController {
     }
     
     // MARK: - Lifecycle
+            
+    init(dependencies: Dependencies) {
+        self.viewModel = BreedsViewModel(dataManager: dependencies.dataManager)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -143,10 +156,10 @@ extension BreedsViewController: UITableViewDelegate {
 
 private extension BreedsViewController {
     
-    static func dequeueBreedCell(for tableView: UITableView, at indexPath: IndexPath) -> BreedTableViewCell {
-        guard let breedCell = tableView.dequeueReusableCell(withIdentifier: BreedTableViewCell.identifier) as? BreedTableViewCell
+    static func dequeueBreedCell(for tableView: UITableView, at indexPath: IndexPath) -> DogUI.Breeds.TableViewCell {
+        guard let breedCell = tableView.dequeueReusableCell(withIdentifier: DogUI.Breeds.TableViewCell.identifier) as? DogUI.Breeds.TableViewCell
         else {
-            fatalError("⛔️ Error in \(#file) at \(#line) - \(BreedTableViewCell.self) is not registered on \(self).")
+            fatalError("⛔️ Error in \(#file) at \(#line) - \(DogUI.Breeds.TableViewCell.self) is not registered on \(self).")
         }
         return breedCell
     }

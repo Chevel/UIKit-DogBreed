@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import DogData
+import DogCore
 
 final actor DogService {
     

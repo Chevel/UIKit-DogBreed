@@ -8,7 +8,7 @@
 
 import Foundation
 
-final actor FavouritesManager {
+public final actor FavouritesManager {
         
     // MARK: - Init
 
@@ -16,7 +16,7 @@ final actor FavouritesManager {
 
     // MARK: - Interface
 
-    static func isFavourite(imageUrl: URL) -> Bool {
+    public static func isFavourite(imageUrl: URL) -> Bool {
         guard
             let favouritesData = UserDefaults.standard.object(forKey: UserDefaults.Keys.favouritePictures.rawValue) as? [String: Bool]
         else {
@@ -25,7 +25,7 @@ final actor FavouritesManager {
         return favouritesData[imageUrl.absoluteString] ?? false
     }
 
-    static func markAsFavourite(isFavourite: Bool, imageURL: URL) {
+    public static func markAsFavourite(isFavourite: Bool, imageURL: URL) {
         guard
             var favouritesData = UserDefaults.standard.object(forKey: UserDefaults.Keys.favouritePictures.rawValue) as? [String: Bool]
         else {
@@ -39,7 +39,7 @@ final actor FavouritesManager {
         UserDefaults.standard.synchronize()
     }
     
-    static func allFavourites() -> [URL]? {
+    public static func allFavourites() -> [URL]? {
         guard
             let favouritesData = UserDefaults.standard.object(forKey: UserDefaults.Keys.favouritePictures.rawValue) as? [String: Bool]
         else {
@@ -47,5 +47,4 @@ final actor FavouritesManager {
         }
         return favouritesData.filter { $0.value }.keys.compactMap({ URL(string: $0) })
     }
-    
 }

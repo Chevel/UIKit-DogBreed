@@ -6,6 +6,7 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogData
 import Foundation
 
 struct DogBreedResponse: Decodable {

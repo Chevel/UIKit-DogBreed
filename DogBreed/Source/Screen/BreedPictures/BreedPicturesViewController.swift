@@ -6,6 +6,7 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogUI
 import UIKit
 import Combine
 
@@ -34,7 +35,7 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(BreedPictureCollectionViewCell.self, forCellWithReuseIdentifier: BreedPictureCollectionViewCell.identifier)
+        collectionView.register(DogUI.BreedPictures.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         return collectionView
     }()
@@ -147,9 +148,9 @@ extension BreedPicturesViewController: UICollectionViewDelegate {
 
 // MARK: - BreedPictureCollectionViewCellDelegate
 
-extension BreedPicturesViewController: BreedPictureCollectionViewCell.Delegate {
+extension BreedPicturesViewController: DogUI.BreedPictures.CollectionViewCell.Delegate {
     
-    func toggleFavourite(cell: BreedPictureCollectionViewCell) {
+    func toggleFavourite(cell: DogUI.BreedPictures.CollectionViewCell) {
         guard
             let path = collectionView.indexPath(for: cell),
             let imageUrl = viewModel.imagesUrls[safe: path.row]
