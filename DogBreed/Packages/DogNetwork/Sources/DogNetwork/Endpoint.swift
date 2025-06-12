@@ -25,5 +25,4 @@ enum Endpoint {
         case .breeds, .breedImages: return "GET"
         }
     }
-
 }
