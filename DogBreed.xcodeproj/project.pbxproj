@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D25BED99291FDE2F00F8745B /* Bundle+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25BED98291FDE2F00F8745B /* Bundle+Configuration.swift */; };
 		D298AE8F2DFAE58E0094732B /* DogCore in Frameworks */ = {isa = PBXBuildFile; productRef = D298AE8E2DFAE58E0094732B /* DogCore */; };
 		D298AE972DFAEE550094732B /* DogUILib in Frameworks */ = {isa = PBXBuildFile; productRef = D298AE962DFAEE550094732B /* DogUILib */; };
 		D2CF49EB28B9FF770064FE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF49EA28B9FF770064FE87 /* AppDelegate.swift */; };
@@ -23,20 +22,16 @@
 		D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2D28BA04080064FE87 /* Endpoint.swift */; };
 		D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */; };
 		D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */; };
-		D2CF4A3928BA31320064FE87 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3828BA31320064FE87 /* Array+SafeAccess.swift */; };
 		D2CF4A3C28BA40EB0064FE87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A3E28BA40EB0064FE87 /* Localizable.strings */; };
-		D2CF4A4128BA41660064FE87 /* NSLocalizedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */; };
 		D2CF4A4328BA41F90064FE87 /* BreedPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4228BA41F90064FE87 /* BreedPicturesViewController.swift */; };
 		D2CF4A4528BA42070064FE87 /* FavouritePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4428BA42070064FE87 /* FavouritePicturesViewController.swift */; };
 		D2CF4A5128BA4EB20064FE87 /* BreedPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A5028BA4EB20064FE87 /* BreedPicturesViewModel.swift */; };
 		D2CF4A5A28BA7D360064FE87 /* FavouritePicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A5928BA7D360064FE87 /* FavouritePicturesViewModel.swift */; };
-		D2CF4A6128BAB7510064FE87 /* URL+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A6028BAB7510064FE87 /* URL+Parse.swift */; };
 		D2CF4A7E28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A7D28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift */; };
 		D2CF4A8E28BFF9E10064FE87 /* breed-images.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A8728BFF0A90064FE87 /* breed-images.json */; };
 		D2CF4A8F28BFF9E40064FE87 /* breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A7F28BFD0230064FE87 /* breeds.json */; };
 		D2CF4A9D28C486FA0064FE87 /* BreedsDBModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A9B28C486FA0064FE87 /* BreedsDBModel+CoreDataClass.swift */; };
 		D2CF4A9E28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A9C28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift */; };
-		D2CF4AA028C487830064FE87 /* NSManagedObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */; };
 		D2CF4AA328C49EFB0064FE87 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D25BED98291FDE2F00F8745B /* Bundle+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Configuration.swift"; sourceTree = "<group>"; };
 		D298AE892DFACCF50094732B /* DogCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogCore; sourceTree = "<group>"; };
 		D298AE8A2DFACD140094732B /* DogUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogUI; sourceTree = "<group>"; };
 		D2CF49E728B9FF770064FE87 /* DogBreed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,21 +72,17 @@
 		D2CF4A2D28BA04080064FE87 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedImagesResponse.swift; sourceTree = "<group>"; };
 		D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
-		D2CF4A3828BA31320064FE87 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		D2CF4A3D28BA40EB0064FE87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2CF4A3F28BA412E0064FE87 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocalizedString+Extension.swift"; sourceTree = "<group>"; };
 		D2CF4A4228BA41F90064FE87 /* BreedPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewController.swift; sourceTree = "<group>"; };
 		D2CF4A4428BA42070064FE87 /* FavouritePicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePicturesViewController.swift; sourceTree = "<group>"; };
 		D2CF4A5028BA4EB20064FE87 /* BreedPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewModel.swift; sourceTree = "<group>"; };
 		D2CF4A5928BA7D360064FE87 /* FavouritePicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePicturesViewModel.swift; sourceTree = "<group>"; };
-		D2CF4A6028BAB7510064FE87 /* URL+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Parse.swift"; sourceTree = "<group>"; };
 		D2CF4A7D28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedMockUrlProtocol.swift; sourceTree = "<group>"; };
 		D2CF4A7F28BFD0230064FE87 /* breeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = breeds.json; sourceTree = "<group>"; };
 		D2CF4A8728BFF0A90064FE87 /* breed-images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "breed-images.json"; sourceTree = "<group>"; };
 		D2CF4A9B28C486FA0064FE87 /* BreedsDBModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedsDBModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2CF4A9C28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedsDBModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Identifier.swift"; sourceTree = "<group>"; };
 		D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,7 +202,6 @@
 				D2CF4A1F28BA003A0064FE87 /* Screen */,
 				D2CF4A2228BA00470064FE87 /* Service */,
 				D2CF4A7C28BFC9A90064FE87 /* Mock */,
-				D2CF4A2128BA00430064FE87 /* Extensions */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -225,18 +214,6 @@
 				D2CF4A2528BA00780064FE87 /* Favorites */,
 			);
 			path = Screen;
-			sourceTree = "<group>";
-		};
-		D2CF4A2128BA00430064FE87 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A3828BA31320064FE87 /* Array+SafeAccess.swift */,
-				D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */,
-				D2CF4A6028BAB7510064FE87 /* URL+Parse.swift */,
-				D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */,
-				D25BED98291FDE2F00F8745B /* Bundle+Configuration.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D2CF4A2228BA00470064FE87 /* Service */ = {
@@ -479,11 +456,8 @@
 				D2CF4A9D28C486FA0064FE87 /* BreedsDBModel+CoreDataClass.swift in Sources */,
 				D2CF49EF28B9FF770064FE87 /* BreedsViewController.swift in Sources */,
 				D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */,
-				D2CF4AA028C487830064FE87 /* NSManagedObject+Identifier.swift in Sources */,
 				D2CF4A4528BA42070064FE87 /* FavouritePicturesViewController.swift in Sources */,
-				D2CF4A6128BAB7510064FE87 /* URL+Parse.swift in Sources */,
 				D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */,
-				D2CF4A3928BA31320064FE87 /* Array+SafeAccess.swift in Sources */,
 				D2CF4A4328BA41F90064FE87 /* BreedPicturesViewController.swift in Sources */,
 				D2CF4A5A28BA7D360064FE87 /* FavouritePicturesViewModel.swift in Sources */,
 				D2CF4A2728BA03070064FE87 /* DogService.swift in Sources */,
@@ -493,9 +467,7 @@
 				D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */,
 				D2CF49ED28B9FF770064FE87 /* SceneDelegate.swift in Sources */,
 				D2CF4A9E28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift in Sources */,
-				D25BED99291FDE2F00F8745B /* Bundle+Configuration.swift in Sources */,
 				D2CF4AA328C49EFB0064FE87 /* CoreDataManager.swift in Sources */,
-				D2CF4A4128BA41660064FE87 /* NSLocalizedString+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension URL {
+public extension URL {
 
     var breed: String {
         String(self.absoluteString
@@ -16,5 +16,4 @@ extension URL {
             .split(separator: "/")
             .first ?? "")
     }
-
 }

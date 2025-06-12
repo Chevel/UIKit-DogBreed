@@ -8,10 +8,9 @@
 
 import Foundation
 
-extension String {
+public extension String {
 
     func translated() -> String {
         return NSLocalizedString(self, comment: "")
     }
-
 }
