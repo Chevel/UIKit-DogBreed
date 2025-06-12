@@ -12,7 +12,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "DogUILib",
-            targets: ["DogUIScreen", "DogUIComponents", "DogUIIcons"]
+            targets: ["DogUIScreen", "DogUIComponents", "DogUIIcons", "DogUI"]
         ),
     ],
     targets: [
@@ -26,6 +26,9 @@ let package = Package(
         ),
         .target(
             name: "DogUIIcons"
+        ),
+        .target(
+            name: "DogUI"
         ),
         .testTarget(
             name: "DogUITests",

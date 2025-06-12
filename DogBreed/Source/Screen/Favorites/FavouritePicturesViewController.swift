@@ -6,6 +6,7 @@
 //  Copyright © 2022 Matej Kokosinek. All rights reserved.
 //
 
+import DogUI
 import UIKit
 import Combine
 
@@ -25,7 +26,7 @@ final class FavouritePicturesViewController: UIViewController, BreedPictureCellD
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
-        collectionView.register(BreedPictureCollectionViewCell.self, forCellWithReuseIdentifier: BreedPictureCollectionViewCell.identifier)
+        collectionView.register(DogUI.BreedPictures.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         return collectionView
     }()
