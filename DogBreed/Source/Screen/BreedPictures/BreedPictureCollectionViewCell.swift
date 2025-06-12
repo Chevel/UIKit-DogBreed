@@ -24,6 +24,7 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
         let view = UIActivityIndicatorView(style: .large)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.hidesWhenStopped = true
+        view.color = .black
         return view
     }()
 
@@ -58,6 +59,8 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private var imageTask: Task<(), Never>?
 
     // MARK: - Init
 
@@ -78,10 +81,15 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        photoImageView.image = nil
-        loader.stopAnimating()
+        photoImageView.image = .placeholder
+        photoImageView.contentMode = .scaleAspectFill
+
+        loader.startAnimating()
         favouriteButton.setImage(.favouriteEmpty, for: .normal)
         imageLabel.text = nil
+
+        imageTask?.cancel()
+        imageTask = nil
     }
     
     @objc private func toggleFavourite() {
@@ -90,31 +98,37 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Interface
     
-    func set(mode: Mode) {
-        self.delegate = mode.delegate
-        favouriteButton.isHidden = true
+    func set(mode: Mode, data: ImageData, delegate: BreedPictureCollectionViewCellDelegate?) {
+        self.delegate = delegate
 
-        load(imageURL: mode.imageURL, mode: mode)
+        imageTask = Task {
+            let image = await ImageCache.shared.image(at: data.url)
 
+            guard !Task.isCancelled else { return }
+            await MainActor.run { [weak self] in
+                if let image {
+                    self?.photoImageView.image = image
+                } else {
+                    self?.photoImageView.image = .warning
+                    self?.photoImageView.contentMode = .scaleAspectFit
+                }
+                self?.loader.stopAnimating()
+            }
+        }
+
+        favouriteButton.isHidden = mode.isFavouriteButtonHidden
         imageLabel.isHidden = mode.isImageDescriptionHidden
-        imageLabel.text = mode.imageURL.breed
         gradientView.isHidden = mode.isImageDescriptionHidden
         
+        imageLabel.text = data.name
+
         if !mode.isFavouriteButtonHidden {
-            let isFavourite = FavouritesManager.isFavourite(imageUrl: mode.imageURL)
+            let isFavourite = FavouritesManager.isFavourite(imageUrl: data.url)
             favouriteButton.setImage(isFavourite ? .favouriteFull : .favouriteEmpty, for: .normal)
         }
     }
 
     // MARK: - Helper
-
-    private func load(imageURL: URL, mode: Mode) {
-        Task(priority: .background) {
-            photoImageView.image = try? await ImageCache.shared.image(at: imageURL)
-            favouriteButton.isHidden = mode.isFavouriteButtonHidden
-            loader.stopAnimating()
-        }
-    }
 
     private func setup() {
         guard photoImageView.superview == nil else { return }
@@ -153,22 +167,20 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
         favouriteButton.addTarget(self, action: #selector(toggleFavourite), for: .touchUpInside)
         loader.startAnimating()
     }
-    
 }
 
 // MARK: - Mode
 
 extension BreedPictureCollectionViewCell {
     
+    struct ImageData {
+        let name: String
+        let url: URL
+    }
+
     enum Mode {
-        case display(imageURL: URL, delegate: BreedPictureCollectionViewCellDelegate)
-        case favourite(imageURL: URL)
-        
-        var imageURL: URL {
-            switch self {
-            case .display(let imageURL, _), .favourite(let imageURL): return imageURL
-            }
-        }
+        case display(delegate: BreedPictureCollectionViewCellDelegate)
+        case favourite
         
         var isFavouriteButtonHidden: Bool {
             switch self {
@@ -180,13 +192,5 @@ extension BreedPictureCollectionViewCell {
         var isImageDescriptionHidden: Bool {
             return !isFavouriteButtonHidden
         }
-        
-        var delegate: BreedPictureCollectionViewCellDelegate? {
-            switch self {
-            case .display(_, let delegate): return delegate
-            case .favourite(_): return nil
-            }
-        }
     }
-    
 }

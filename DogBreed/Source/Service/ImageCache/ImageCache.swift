@@ -10,73 +10,86 @@ import UIKit
 
 final actor ImageCache {
     
+    private typealias ImageDownloadTask = Task<UIImage, Error>
+    
     // MARK: - Init
 
     static let shared = ImageCache()
     
     private init() {}
-    
+
     // MARK: - Properties
-    
-    private lazy var imageCache: NSCache<NSString, UIImage> = {
+
+    private let imageCache: NSCache<NSString, UIImage> = {
         let cache = NSCache<NSString, UIImage>()
         cache.countLimit = 80
         return cache
     }()
 
-    private var picturesDirURL: URL? {
-        return FileManager.default
-            .urls(for: .cachesDirectory, in: .userDomainMask)
-            .first?
-            .appendingPathComponent("DogPictures")
-    }
-
+    private let picturesDirURL: URL? = FileManager.default
+        .urls(for: .cachesDirectory, in: .userDomainMask)
+        .first?
+        .appendingPathComponent("DogPictures")
+    
     // MARK: - Images
 
-    func image(at url: URL) async throws -> UIImage {
-        let imageName = url.lastPathComponent
-        if let cachedImage = imageCache.object(forKey: imageName as NSString) {
+    func image(at url: URL) async -> UIImage? {
+        if let cachedImage = imageCache.object(forKey: url.imageIdentifier as NSString) {
             return cachedImage
-        } else if let storedImage = loadImage(forKey: imageName) {
+        } else if let storedImage = loadImage(forKey: url.imageIdentifier) {
             return storedImage
         } else {
-            return try await downloadImage(at: url)
+            return await downloadImage(at: url)
         }
     }
+}
 
+private extension URL {
+    
+    var imageIdentifier: String {
+        lastPathComponent
+    }
 }
 
 // MARK: - Network
 
 private extension ImageCache {
-    
-    func downloadImage(at imageURL: URL) async throws -> UIImage {
-        let imageName = imageURL.lastPathComponent
-        return try await withCheckedThrowingContinuation { continuation in
-            URLSession.shared.dataTask(with: imageURL as URL, completionHandler: { (data, response, error) in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                } else if let data = data, let image = UIImage(data: data) {
-                    self.imageCache.setObject(image, forKey: imageName as NSString)
-                    self.store(image: image, forKey: imageName)
 
-                    continuation.resume(returning: image)
-                } else {
-                    continuation.resume(throwing: ParseError(domain: imageURL.absoluteString))
-                }
-            }).resume()
+    func downloadImage(at imageURL: URL) async -> UIImage? {
+        let image = try? await ImageDownloadTask {
+            try await withCheckedThrowingContinuation { continuation in
+                URLSession.shared.dataTask(with: imageURL as URL, completionHandler: { (data, response, error) in
+                    if let error = error {
+                        continuation.resume(throwing: error)
+                        
+                    } else if let data = data, let image = UIImage(data: data) {
+                        continuation.resume(returning: image)
+
+                    } else {
+                        continuation.resume(throwing: ParseError(domain: imageURL.absoluteString))
+                    }
+                }).resume()
+            }
+        }.value
+        
+        if let image {
+            store(image: image, forKey: imageURL.imageIdentifier)
+            imageCache.setObject(image, forKey: imageURL.imageIdentifier as NSString)
+        } else {
+            print("")
         }
+
+        return image
     }
-    
 }
 
 // MARK: - Disk
 
 private extension ImageCache {
-    
+
     func loadImage(forKey key: String) -> UIImage? {
         guard
-            let filePath = self.filePath(forKey: key),
+            let filePath = picturesDirURL?.appendingPathComponent(key),
             let fileData = FileManager.default.contents(atPath: filePath.path)
         else {
             return nil
@@ -88,10 +101,10 @@ private extension ImageCache {
 
         return image
     }
-    
+
     func store(image: UIImage, forKey key: String) {
         guard
-            let pngRepresentation = image.pngData(), let filePath = filePath(forKey: key),
+            let pngRepresentation = image.pngData(), let filePath = picturesDirURL?.appendingPathComponent(key),
             let picturesDir = picturesDirURL
         else {
             CustomLogger.log(type: .imageCache, message: "Failed to unwrap image data in \(#file) at \(#line)", error: ParseError())
@@ -107,9 +120,4 @@ private extension ImageCache {
             CustomLogger.log(type: .imageCache, message: "Failed to save image at \(filePath).", error: error)
         }
     }
-    
-    func filePath(forKey key: String) -> URL? {
-        return picturesDirURL?.appendingPathComponent(key)
-    }
-    
 }

@@ -102,7 +102,6 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
                 self.collectionView.reloadData()
             }.store(in: &subscriberTokens)
     }
-
 }
 
 // MARK: - UICollectionViewDataSource
@@ -114,13 +113,21 @@ extension BreedPicturesViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let imageUrl = viewModel.imagesUrls[safe: indexPath.row] else { return UICollectionViewCell() }
+        guard
+            let breedName = viewModel.breedName(for: indexPath),
+            let imageUrl = viewModel.imagesUrls[safe: indexPath.row]
+        else { return UICollectionViewCell() }
 
         let cell = dequeueBreedPictureCell(for: collectionView, at: indexPath)
-        cell.set(mode: .display(imageURL: imageUrl, delegate: self))
+    
+        cell.set(
+            mode: .display(delegate: self),
+            data: .init(name: breedName, url: imageUrl),
+            delegate: self
+        )
+        
         return cell
     }
-
 }
 
 // MARK: - UICollectionViewDelegate
@@ -153,5 +160,4 @@ extension BreedPicturesViewController: BreedPictureCollectionViewCellDelegate {
         viewModel.markAsFavourite(imageURL: imageUrl)
         collectionView.reloadItems(at: [path])
     }
-
 }

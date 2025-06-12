@@ -121,10 +121,12 @@ extension FavouritePicturesViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let imageUrl = viewModel.displayedData[safe: indexPath.row] else { return UICollectionViewCell() }
+        guard
+            let imageUrl = viewModel.displayedData[safe: indexPath.row]
+        else { return UICollectionViewCell() }
 
         let cell = dequeueBreedPictureCell(for: collectionView, at: indexPath)
-        cell.set(mode: .favourite(imageURL: imageUrl))
+        cell.set(mode: .favourite, data: .init(name: imageUrl.breed, url: imageUrl), delegate: nil)
         return cell
     }
 

@@ -26,6 +26,10 @@ import Combine
             }
         })
     }
+    
+    func breedName(for indexPath: IndexPath) -> String? {
+        imagesUrls[safe: indexPath.row]?.breed
+    }
 
     // MARK: - Interface
 
@@ -34,7 +38,4 @@ import Combine
         isFavourite.toggle()
         FavouritesManager.markAsFavourite(isFavourite: isFavourite, imageURL: imageURL)
     }
-
 }
-
-
