@@ -23,7 +23,7 @@ enum ServiceError: Error {
 
 enum DataBaseError: Error {
 
-    case save(object: Any)
+    case save(object: Sendable)
     case fetch
     case delete
 

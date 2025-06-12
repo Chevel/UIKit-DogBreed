@@ -49,6 +49,7 @@
 		D2CF4A9E28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A9C28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift */; };
 		D2CF4AA028C487830064FE87 /* NSManagedObject+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */; };
 		D2CF4AA328C49EFB0064FE87 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */; };
+		D2E63B782DFAAF5900984BAF /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E63B772DFAAF5900984BAF /* Breed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		D2CF4A9C28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedsDBModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2CF4A9F28C487830064FE87 /* NSManagedObject+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Identifier.swift"; sourceTree = "<group>"; };
 		D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		D2E63B772DFAAF5900984BAF /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		D2CF4A2228BA00470064FE87 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D2E63B762DFAAF4C00984BAF /* Data */,
 				D2CF4A5428BA67D60064FE87 /* Favourites */,
 				D2CF4A4628BA450D0064FE87 /* Network */,
 				D2CF4AA128C49EAE0064FE87 /* CoreData */,
@@ -387,12 +390,20 @@
 		D2CF4AA128C49EAE0064FE87 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				D2CF4A9028C480E60064FE87 /* DataManager.swift */,
 				D2CF4AA228C49EFB0064FE87 /* CoreDataManager.swift */,
 				D2CF49F328B9FF770064FE87 /* DogBreed.xcdatamodeld */,
 				D2CF4A9228C483260064FE87 /* DataBaseModel */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		D2E63B762DFAAF4C00984BAF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D2E63B772DFAAF5900984BAF /* Breed.swift */,
+				D2CF4A9028C480E60064FE87 /* DataManager.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2E63B782DFAAF5900984BAF /* Breed.swift in Sources */,
 				D2CF4A7E28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift in Sources */,
 				D2CF4A4D28BA4C720064FE87 /* UIImage+SFSymbols.swift in Sources */,
 				D2CF4A5128BA4EB20064FE87 /* BreedPicturesViewModel.swift in Sources */,
@@ -753,7 +765,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -783,7 +796,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

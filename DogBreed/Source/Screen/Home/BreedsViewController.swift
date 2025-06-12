@@ -34,11 +34,11 @@ final class BreedsViewController: UIViewController {
 
     private var subscriberTokens = Set<AnyCancellable>()
     private var viewModel = BreedsViewModel()
-    private lazy var dataSource: UITableViewDiffableDataSource<Section, String> = {
-        return UITableViewDiffableDataSource<Section, String>(tableView: tableView) { [weak self]
-            (tableView: UITableView, indexPath: IndexPath, item: String) -> UITableViewCell? in
+    private lazy var dataSource: UITableViewDiffableDataSource<Section, Breed> = {
+        return UITableViewDiffableDataSource<Section, Breed>(tableView: tableView) { [weak self]
+            (tableView: UITableView, indexPath: IndexPath, item: Breed) -> UITableViewCell? in
             
-            guard let name = self?.viewModel.breeds?[safe: indexPath.row] else {
+            guard let name = self?.viewModel.breeds?[safe: indexPath.row]?.name else {
                 return UITableViewCell()
             }
             let breedCell = Self.dequeueBreedCell(for: tableView, at: indexPath)
@@ -101,7 +101,7 @@ final class BreedsViewController: UIViewController {
                 self.setupFavouritesButtonIfNeeded()
                 
                 guard let newData = $0 else { return }
-                var initialSnapshot = NSDiffableDataSourceSnapshot<Section, String>()
+                var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Breed>()
                 initialSnapshot.appendSections([.breeds])
                 initialSnapshot.appendItems(newData)
                 self.dataSource.apply(initialSnapshot, animatingDifferences: false)
@@ -121,10 +121,10 @@ final class BreedsViewController: UIViewController {
 extension BreedsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let name = viewModel.breeds?[safe: indexPath.row] else {
+        guard let breed = viewModel.breeds?[safe: indexPath.row] else {
             return
         }
-        navigationController?.pushViewController(BreedPicturesViewController(breedName: name), animated: true)
+        navigationController?.pushViewController(BreedPicturesViewController(breedName: breed.name), animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -12,8 +12,9 @@ struct DogBreedResponse: Decodable {
     
     let message: [String: [String]]
     
-    var breeds: [String] {
-        return Array(message.keys).sorted(by: <)
+    var breeds: [Breed] {
+        Array(message.keys)
+            .sorted(by: <)
+            .map({ Breed(name: $0) })
     }
-
 }

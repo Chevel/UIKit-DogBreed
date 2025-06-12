@@ -19,8 +19,8 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
         case breeds
 
         var columns: Int { 2 }
-        var heightDimension: NSCollectionLayoutDimension { NSCollectionLayoutDimension.fractionalWidth(1) }
-        var widthDimension: NSCollectionLayoutDimension { NSCollectionLayoutDimension.fractionalWidth(1) }
+        @MainActor var heightDimension: NSCollectionLayoutDimension { NSCollectionLayoutDimension.fractionalWidth(1) }
+        @MainActor var widthDimension: NSCollectionLayoutDimension { NSCollectionLayoutDimension.fractionalWidth(1) }
         var insets: NSDirectionalEdgeInsets { .zero }
     }
     
@@ -147,7 +147,7 @@ extension BreedPicturesViewController: UICollectionViewDelegate {
 
 // MARK: - BreedPictureCollectionViewCellDelegate
 
-extension BreedPicturesViewController: BreedPictureCollectionViewCellDelegate {
+extension BreedPicturesViewController: BreedPictureCollectionViewCell.Delegate {
     
     func toggleFavourite(cell: BreedPictureCollectionViewCell) {
         guard
