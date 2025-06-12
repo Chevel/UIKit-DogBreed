@@ -8,15 +8,15 @@
 
 import UIKit
 
-protocol BreedPictureCollectionViewCellDelegate: AnyObject {
-    func toggleFavourite(cell: BreedPictureCollectionViewCell)
-}
-
 final class BreedPictureCollectionViewCell: UICollectionViewCell {
+
+    @MainActor protocol Delegate: AnyObject {
+        func toggleFavourite(cell: BreedPictureCollectionViewCell)
+    }
  
     // MARK: - Delegate
     
-    weak var delegate: BreedPictureCollectionViewCellDelegate?
+    weak var delegate: Delegate?
     
     // MARK: - UI
     
@@ -98,7 +98,7 @@ final class BreedPictureCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Interface
     
-    func set(mode: Mode, data: ImageData, delegate: BreedPictureCollectionViewCellDelegate?) {
+    func set(mode: Mode, data: ImageData, delegate: Delegate?) {
         self.delegate = delegate
 
         imageTask = Task {
@@ -179,7 +179,7 @@ extension BreedPictureCollectionViewCell {
     }
 
     enum Mode {
-        case display(delegate: BreedPictureCollectionViewCellDelegate)
+        case display(delegate: Delegate)
         case favourite
         
         var isFavouriteButtonHidden: Bool {

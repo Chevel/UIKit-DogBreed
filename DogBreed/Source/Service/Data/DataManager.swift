@@ -8,11 +8,10 @@
 
 import Foundation
 
-protocol DoggyDatabase: AnyObject {
+protocol DoggyDatabase: Actor {
     
-    func create(breeds: [String]) async throws
-    func loadBreeds() async throws -> [BreedsDBModel]
-
+    func create(breeds: [Breed]) async throws
+    func loadBreeds() async throws -> [Breed]
 }
 
 final actor DataManager {
@@ -35,16 +34,15 @@ final actor DataManager {
     
     // MARK: - Update
 
-    func update(breeds: [String]) async throws {
+    func update(breeds: [Breed]) async throws {
         try await databaseManager.create(breeds: breeds)
     }
     
     // MARK: - Load
     
-    func loadBreeds() async throws -> [String] {
-        let breedDbModels = try await databaseManager.loadBreeds()
-        return breedDbModels.compactMap { $0.name }.sorted(by: <)
+    func loadBreeds() async throws -> [Breed] {
+        try await databaseManager
+            .loadBreeds()
+            .sorted { $0.name < $1.name }
     }
-    
 }
-

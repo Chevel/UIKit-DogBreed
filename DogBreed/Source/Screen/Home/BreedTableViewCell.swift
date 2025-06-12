@@ -22,8 +22,7 @@ final class BreedTableViewCell: UITableViewCell {
     // MARK: - Init
 
     override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
+        assertionFailure("Storyboards are not supported")
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

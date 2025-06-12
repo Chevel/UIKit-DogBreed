@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CoreData
+@preconcurrency import CoreData
 import UIKit.UIApplication
 
 final actor CoreDataManager: DoggyDatabase {
@@ -24,7 +24,7 @@ final actor CoreDataManager: DoggyDatabase {
     
     // MARK: - Create
 
-    func create(breeds: [String]) async throws {
+    func create(breeds: [Breed]) async throws {
         return try await withCheckedThrowingContinuation { continuation in
             Task(priority: .background, operation: {
                 guard let context = await self.managedContext else {
@@ -35,9 +35,9 @@ final actor CoreDataManager: DoggyDatabase {
                 let storedBreeds = try await loadBreeds()
 
                 // Create new entries that are not stored
-                for breed in breeds where !storedBreeds.contains(where: { $0.name == breed }) {
+                for breed in breeds where !storedBreeds.contains(where: { $0.name == breed.name }) {
                     let newBreedsDbModel = BreedsDBModel(context: context)
-                    newBreedsDbModel.name = breed
+                    newBreedsDbModel.name = breed.name
                 }
 
                 // Save
@@ -58,7 +58,7 @@ final actor CoreDataManager: DoggyDatabase {
     
     // MARK: - Read
     
-    func loadBreeds() async throws -> [BreedsDBModel] {
+    func loadBreeds() async throws -> [Breed] {
         return try await withCheckedThrowingContinuation { continuation in
             Task(priority: .background, operation: {
                 guard let context = await self.managedContext else {
@@ -68,7 +68,13 @@ final actor CoreDataManager: DoggyDatabase {
                 
                 do {
                     let fetchRequest = NSFetchRequest<BreedsDBModel>(entityName: BreedsDBModel.entityName)
-                    let breedDbModels = try context.fetch(fetchRequest)
+                    let breedDbModels = try context.fetch(fetchRequest).compactMap {
+                        if let name = $0.name {
+                            Breed(name: name)
+                        } else {
+                            nil
+                        }
+                    }
                     continuation.resume(returning: breedDbModels)
                 } catch let error as NSError {
                     CustomLogger.log(type: .dataBase, message: "Failed fetching Breeds", error: error)

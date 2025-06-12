@@ -10,7 +10,7 @@ import Foundation
 
 @MainActor final class BreedsViewModel: ObservableObject {
     
-    @Published private(set) var breeds: [String]? = nil
+    @Published private(set) var breeds: [Breed]? = nil
     
     init() {
         Task(priority: .background, operation: {
@@ -27,5 +27,4 @@ import Foundation
             }
         })
     }
-    
 }
