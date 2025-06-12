@@ -23,7 +23,6 @@
 		D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2D28BA04080064FE87 /* Endpoint.swift */; };
 		D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */; };
 		D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */; };
-		D2CF4A3728BA30E60064FE87 /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3628BA30E60064FE87 /* BreedTableViewCell.swift */; };
 		D2CF4A3928BA31320064FE87 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3828BA31320064FE87 /* Array+SafeAccess.swift */; };
 		D2CF4A3C28BA40EB0064FE87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A3E28BA40EB0064FE87 /* Localizable.strings */; };
 		D2CF4A4128BA41660064FE87 /* NSLocalizedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */; };
@@ -79,7 +78,6 @@
 		D2CF4A2D28BA04080064FE87 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedImagesResponse.swift; sourceTree = "<group>"; };
 		D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
-		D2CF4A3628BA30E60064FE87 /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
 		D2CF4A3828BA31320064FE87 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		D2CF4A3D28BA40EB0064FE87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2CF4A3F28BA412E0064FE87 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 			children = (
 				D2CF49EE28B9FF770064FE87 /* BreedsViewController.swift */,
 				D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */,
-				D2CF4A3628BA30E60064FE87 /* BreedTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -479,7 +476,6 @@
 			files = (
 				D2CF4A7E28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift in Sources */,
 				D2CF4A5128BA4EB20064FE87 /* BreedPicturesViewModel.swift in Sources */,
-				D2CF4A3728BA30E60064FE87 /* BreedTableViewCell.swift in Sources */,
 				D2CF4A9D28C486FA0064FE87 /* BreedsDBModel+CoreDataClass.swift in Sources */,
 				D2CF49EF28B9FF770064FE87 /* BreedsViewController.swift in Sources */,
 				D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */,

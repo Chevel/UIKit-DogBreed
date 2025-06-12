@@ -21,7 +21,7 @@ final class BreedsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.rowHeight = 50
         view.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.identifier)
-        view.register(BreedTableViewCell.self, forCellReuseIdentifier: BreedTableViewCell.identifier)
+        view.register(DogUI.Breeds.TableViewCell.self, forCellReuseIdentifier: DogUI.Breeds.TableViewCell.identifier)
         return view
     }()
 
@@ -156,10 +156,10 @@ extension BreedsViewController: UITableViewDelegate {
 
 private extension BreedsViewController {
     
-    static func dequeueBreedCell(for tableView: UITableView, at indexPath: IndexPath) -> BreedTableViewCell {
-        guard let breedCell = tableView.dequeueReusableCell(withIdentifier: BreedTableViewCell.identifier) as? BreedTableViewCell
+    static func dequeueBreedCell(for tableView: UITableView, at indexPath: IndexPath) -> DogUI.Breeds.TableViewCell {
+        guard let breedCell = tableView.dequeueReusableCell(withIdentifier: DogUI.Breeds.TableViewCell.identifier) as? DogUI.Breeds.TableViewCell
         else {
-            fatalError("⛔️ Error in \(#file) at \(#line) - \(BreedTableViewCell.self) is not registered on \(self).")
+            fatalError("⛔️ Error in \(#file) at \(#line) - \(DogUI.Breeds.TableViewCell.self) is not registered on \(self).")
         }
         return breedCell
     }
