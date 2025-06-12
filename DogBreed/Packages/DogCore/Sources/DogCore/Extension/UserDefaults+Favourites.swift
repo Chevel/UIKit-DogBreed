@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UserDefaults {
+public extension UserDefaults {
     
     enum Keys: String {
         case favouritePictures
