@@ -8,6 +8,7 @@
 
 import UIKit
 import Combine
+import DogCore
 
 @MainActor final class BreedPicturesViewModel: ObservableObject {
     

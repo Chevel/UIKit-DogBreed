@@ -20,7 +20,6 @@
 		D2CF4A1128B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A1028B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift */; };
 		D2CF4A2728BA03070064FE87 /* DogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2628BA03070064FE87 /* DogService.swift */; };
 		D2CF4A2928BA039A0064FE87 /* DogBreedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2828BA039A0064FE87 /* DogBreedResponse.swift */; };
-		D2CF4A2C28BA03CA0064FE87 /* ErrorDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2B28BA03CA0064FE87 /* ErrorDomain.swift */; };
 		D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2D28BA04080064FE87 /* Endpoint.swift */; };
 		D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */; };
 		D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */; };
@@ -31,7 +30,6 @@
 		D2CF4A4128BA41660064FE87 /* NSLocalizedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */; };
 		D2CF4A4328BA41F90064FE87 /* BreedPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4228BA41F90064FE87 /* BreedPicturesViewController.swift */; };
 		D2CF4A4528BA42070064FE87 /* FavouritePicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4428BA42070064FE87 /* FavouritePicturesViewController.swift */; };
-		D2CF4A4928BA45210064FE87 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4828BA45210064FE87 /* ImageCache.swift */; };
 		D2CF4A4B28BA4BCF0064FE87 /* BreedPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4A28BA4BCF0064FE87 /* BreedPictureCollectionViewCell.swift */; };
 		D2CF4A4F28BA4D250064FE87 /* UICollectionViewCell+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4E28BA4D250064FE87 /* UICollectionViewCell+Identifier.swift */; };
 		D2CF4A5128BA4EB20064FE87 /* BreedPicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A5028BA4EB20064FE87 /* BreedPicturesViewModel.swift */; };
@@ -40,7 +38,6 @@
 		D2CF4A5A28BA7D360064FE87 /* FavouritePicturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A5928BA7D360064FE87 /* FavouritePicturesViewModel.swift */; };
 		D2CF4A5C28BA7D820064FE87 /* UserDefaults+Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A5B28BA7D820064FE87 /* UserDefaults+Favourites.swift */; };
 		D2CF4A6128BAB7510064FE87 /* URL+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A6028BAB7510064FE87 /* URL+Parse.swift */; };
-		D2CF4A7628BD78BF0064FE87 /* CustomLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A7528BD78BF0064FE87 /* CustomLogger.swift */; };
 		D2CF4A7E28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A7D28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift */; };
 		D2CF4A8E28BFF9E10064FE87 /* breed-images.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A8728BFF0A90064FE87 /* breed-images.json */; };
 		D2CF4A8F28BFF9E40064FE87 /* breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A7F28BFD0230064FE87 /* breeds.json */; };
@@ -85,7 +82,6 @@
 		D2CF4A1028B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2CF4A2628BA03070064FE87 /* DogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogService.swift; sourceTree = "<group>"; };
 		D2CF4A2828BA039A0064FE87 /* DogBreedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedResponse.swift; sourceTree = "<group>"; };
-		D2CF4A2B28BA03CA0064FE87 /* ErrorDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDomain.swift; sourceTree = "<group>"; };
 		D2CF4A2D28BA04080064FE87 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedImagesResponse.swift; sourceTree = "<group>"; };
 		D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
@@ -97,7 +93,6 @@
 		D2CF4A4028BA41660064FE87 /* NSLocalizedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLocalizedString+Extension.swift"; sourceTree = "<group>"; };
 		D2CF4A4228BA41F90064FE87 /* BreedPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewController.swift; sourceTree = "<group>"; };
 		D2CF4A4428BA42070064FE87 /* FavouritePicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePicturesViewController.swift; sourceTree = "<group>"; };
-		D2CF4A4828BA45210064FE87 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D2CF4A4A28BA4BCF0064FE87 /* BreedPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2CF4A4E28BA4D250064FE87 /* UICollectionViewCell+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Identifier.swift"; sourceTree = "<group>"; };
 		D2CF4A5028BA4EB20064FE87 /* BreedPicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedPicturesViewModel.swift; sourceTree = "<group>"; };
@@ -106,7 +101,6 @@
 		D2CF4A5928BA7D360064FE87 /* FavouritePicturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePicturesViewModel.swift; sourceTree = "<group>"; };
 		D2CF4A5B28BA7D820064FE87 /* UserDefaults+Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Favourites.swift"; sourceTree = "<group>"; };
 		D2CF4A6028BAB7510064FE87 /* URL+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Parse.swift"; sourceTree = "<group>"; };
-		D2CF4A7528BD78BF0064FE87 /* CustomLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogger.swift; sourceTree = "<group>"; };
 		D2CF4A7D28BFC9C40064FE87 /* DogBreedMockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedMockUrlProtocol.swift; sourceTree = "<group>"; };
 		D2CF4A7F28BFD0230064FE87 /* breeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = breeds.json; sourceTree = "<group>"; };
 		D2CF4A8728BFF0A90064FE87 /* breed-images.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "breed-images.json"; sourceTree = "<group>"; };
@@ -269,8 +263,6 @@
 				D2CF4A5428BA67D60064FE87 /* Favourites */,
 				D2CF4A4628BA450D0064FE87 /* Network */,
 				D2CF4AA128C49EAE0064FE87 /* CoreData */,
-				D2CF4A4728BA45160064FE87 /* ImageCache */,
-				D2CF4A7428BD78B30064FE87 /* Logger */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -304,14 +296,6 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		D2CF4A2A28BA03B70064FE87 /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A2B28BA03CA0064FE87 /* ErrorDomain.swift */,
-			);
-			path = Error;
-			sourceTree = "<group>";
-		};
 		D2CF4A2F28BA05200064FE87 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,17 +311,8 @@
 				D2CF4A2628BA03070064FE87 /* DogService.swift */,
 				D2CF4A2D28BA04080064FE87 /* Endpoint.swift */,
 				D2CF4A2F28BA05200064FE87 /* Model */,
-				D2CF4A2A28BA03B70064FE87 /* Error */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		D2CF4A4728BA45160064FE87 /* ImageCache */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A4828BA45210064FE87 /* ImageCache.swift */,
-			);
-			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		D2CF4A5428BA67D60064FE87 /* Favourites */ = {
@@ -346,14 +321,6 @@
 				D2CF4A5528BA67E20064FE87 /* FavouritesManager.swift */,
 			);
 			path = Favourites;
-			sourceTree = "<group>";
-		};
-		D2CF4A7428BD78B30064FE87 /* Logger */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A7528BD78BF0064FE87 /* CustomLogger.swift */,
-			);
-			path = Logger;
 			sourceTree = "<group>";
 		};
 		D2CF4A7C28BFC9A90064FE87 /* Mock */ = {
@@ -547,8 +514,6 @@
 				D2CF4A4528BA42070064FE87 /* FavouritePicturesViewController.swift in Sources */,
 				D2CF4A4B28BA4BCF0064FE87 /* BreedPictureCollectionViewCell.swift in Sources */,
 				D2CF4A5628BA67E20064FE87 /* FavouritesManager.swift in Sources */,
-				D2CF4A2C28BA03CA0064FE87 /* ErrorDomain.swift in Sources */,
-				D2CF4A7628BD78BF0064FE87 /* CustomLogger.swift in Sources */,
 				D2CF4A5328BA5BAC0064FE87 /* UICollectionView+CellFactory.swift in Sources */,
 				D2CF4A6128BAB7510064FE87 /* URL+Parse.swift in Sources */,
 				D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */,
@@ -565,7 +530,6 @@
 				D2CF49ED28B9FF770064FE87 /* SceneDelegate.swift in Sources */,
 				D2CF4A9E28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift in Sources */,
 				D25BED99291FDE2F00F8745B /* Bundle+Configuration.swift in Sources */,
-				D2CF4A4928BA45210064FE87 /* ImageCache.swift in Sources */,
 				D2CF4AA328C49EFB0064FE87 /* CoreDataManager.swift in Sources */,
 				D2CF4A4128BA41660064FE87 /* NSLocalizedString+Extension.swift in Sources */,
 			);

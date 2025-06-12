@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import DogData
 
-final actor ImageCache {
+public final actor ImageCache {
     
     private typealias ImageDownloadTask = Task<UIImage, Error>
     
     // MARK: - Init
 
-    static let shared = ImageCache()
+    public static let shared = ImageCache()
     
     private init() {}
 
@@ -33,7 +34,7 @@ final actor ImageCache {
     
     // MARK: - Images
 
-    func image(at url: URL) async -> UIImage? {
+    public func image(at url: URL) async -> UIImage? {
         if let cachedImage = imageCache.object(forKey: url.imageIdentifier as NSString) {
             return cachedImage
         } else if let storedImage = loadImage(forKey: url.imageIdentifier) {
