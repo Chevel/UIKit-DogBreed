@@ -15,5 +15,4 @@ struct DogBreedImagesResponse: Decodable {
 
     var isResponseValid: Bool { status == "success" }
     var urls: [URL] { message.compactMap { URL(string: $0) }}
-    
 }

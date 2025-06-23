@@ -10,30 +10,37 @@ import Foundation
 import DogData
 import DogCore
 
-final actor DogService {
+public protocol DogService: Actor {
+    func breeds() async throws -> [Breed]
+    func imageUrls(for breed: Breed) async throws -> [URL]
+}
+
+public final actor DogNetworkService: DogService {
     
     private let session: URLSession
         
     // MARK: - Init
     
-    init(session: URLSession) {
+    public init(session: URLSession) {
         self.session = session
     }
-    
+
     // MARK: - Breeds
-    
-    func breeds() async throws -> DogBreedResponse {
+
+    public func breeds() async throws -> [Breed] {
         guard let request = Self.buildRequest(for: .breeds) else {
             throw ParseError()
         }
-        return try await perform(request: request)
+        let response: DogBreedResponse = try await perform(request: request)
+        return response.breeds
     }
     
-    func images(for breed: String) async throws -> DogBreedImagesResponse {
-        guard let request = Self.buildRequest(for: .breedImages(breed: breed)) else {
+    public func imageUrls(for breed: Breed) async throws -> [URL] {
+        guard let request = Self.buildRequest(for: .breedImages(breed: breed.name)) else {
             throw ParseError()
         }
-        return try await perform(request: request)
+        let response: DogBreedImagesResponse = try await perform(request: request)
+        return response.urls
     }
     
     // MARK: - Helper
@@ -60,7 +67,7 @@ final actor DogService {
         }
     }
 
-    static func buildRequest(for endpoint: Endpoint) -> URLRequest? {
+    private static func buildRequest(for endpoint: Endpoint) -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "dog.ceo"
@@ -74,5 +81,4 @@ final actor DogService {
         request.httpMethod = endpoint.method
         return request
     }
-    
 }

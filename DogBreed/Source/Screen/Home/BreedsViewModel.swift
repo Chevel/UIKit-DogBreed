@@ -8,20 +8,21 @@
 
 import DogCore
 import DogData
+import DogNetwork
 import Foundation
 
 @MainActor final class BreedsViewModel: ObservableObject {
     
     @Published private(set) var breeds: [Breed]? = nil
     
-    init(dataManager: DataManager) {
+    init(dataManager: DataManager, dogService: DogService) {
         Task(priority: .background, operation: {
             do {
                 // Load from DB
                 self.breeds = try await dataManager.loadBreeds()
 
                 // Load from BE
-                let newBreeds = try await DogService(session: URLSession.shared).breeds().breeds
+                let newBreeds = try await dogService.breeds()
                 try await dataManager.update(breeds: newBreeds)
                 self.breeds = newBreeds
             } catch {

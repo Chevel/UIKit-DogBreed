@@ -9,6 +9,8 @@
 import UIKit
 import Combine
 import DogCore
+import DogData
+import DogNetwork
 
 @MainActor final class BreedPicturesViewModel: ObservableObject {
     
@@ -18,10 +20,10 @@ import DogCore
 
     // MARK: - Init
     
-    init(breed: String) {
+    init(breed: Breed, dogService: DogService) {
         Task(priority: .background, operation: {
             do {
-                imagesUrls = try await DogService(session: URLSession.shared).images(for: breed).urls
+                imagesUrls = try await dogService.imageUrls(for: breed)
             } catch {
                 CustomLogger.log(type: .network, message: "Failed loading dog images in \(#function) at \(#file)", error: error)
             }

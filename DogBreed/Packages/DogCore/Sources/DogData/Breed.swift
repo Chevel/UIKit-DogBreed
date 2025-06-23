@@ -7,6 +7,7 @@
 //
 
 public struct Breed: Sendable, Hashable {
+
     public let name: String
     
     public init(name: String) {

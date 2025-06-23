@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D298AE8F2DFAE58E0094732B /* DogCore in Frameworks */ = {isa = PBXBuildFile; productRef = D298AE8E2DFAE58E0094732B /* DogCore */; };
 		D298AE972DFAEE550094732B /* DogUILib in Frameworks */ = {isa = PBXBuildFile; productRef = D298AE962DFAEE550094732B /* DogUILib */; };
+		D2C120862DFB35C00081B4E8 /* DogNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = D2C120852DFB35C00081B4E8 /* DogNetwork */; };
+		D2C1208C2DFB38820081B4E8 /* DogBreedContainer in Frameworks */ = {isa = PBXBuildFile; productRef = D2C1208B2DFB38820081B4E8 /* DogBreedContainer */; };
 		D2CF49EB28B9FF770064FE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF49EA28B9FF770064FE87 /* AppDelegate.swift */; };
 		D2CF49ED28B9FF770064FE87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF49EC28B9FF770064FE87 /* SceneDelegate.swift */; };
 		D2CF49EF28B9FF770064FE87 /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF49EE28B9FF770064FE87 /* BreedsViewController.swift */; };
@@ -17,10 +19,6 @@
 		D2CF4A0528B9FF770064FE87 /* DogServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A0428B9FF770064FE87 /* DogServiceTests.swift */; };
 		D2CF4A0F28B9FF780064FE87 /* DogBreedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A0E28B9FF780064FE87 /* DogBreedUITests.swift */; };
 		D2CF4A1128B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A1028B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift */; };
-		D2CF4A2728BA03070064FE87 /* DogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2628BA03070064FE87 /* DogService.swift */; };
-		D2CF4A2928BA039A0064FE87 /* DogBreedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2828BA039A0064FE87 /* DogBreedResponse.swift */; };
-		D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A2D28BA04080064FE87 /* Endpoint.swift */; };
-		D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */; };
 		D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */; };
 		D2CF4A3C28BA40EB0064FE87 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2CF4A3E28BA40EB0064FE87 /* Localizable.strings */; };
 		D2CF4A4328BA41F90064FE87 /* BreedPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CF4A4228BA41F90064FE87 /* BreedPicturesViewController.swift */; };
@@ -53,8 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2671A0F2DFB347D00320D6B /* DogNetwork */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogNetwork; sourceTree = "<group>"; };
 		D298AE892DFACCF50094732B /* DogCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogCore; sourceTree = "<group>"; };
 		D298AE8A2DFACD140094732B /* DogUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogUI; sourceTree = "<group>"; };
+		D2C1208A2DFB38230081B4E8 /* DogBreedContainer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DogBreedContainer; sourceTree = "<group>"; };
 		D2CF49E728B9FF770064FE87 /* DogBreed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogBreed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF49EA28B9FF770064FE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2CF49EC28B9FF770064FE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,10 +67,6 @@
 		D2CF4A0A28B9FF770064FE87 /* DogBreedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogBreedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF4A0E28B9FF780064FE87 /* DogBreedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedUITests.swift; sourceTree = "<group>"; };
 		D2CF4A1028B9FF780064FE87 /* DogBreedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D2CF4A2628BA03070064FE87 /* DogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogService.swift; sourceTree = "<group>"; };
-		D2CF4A2828BA039A0064FE87 /* DogBreedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedResponse.swift; sourceTree = "<group>"; };
-		D2CF4A2D28BA04080064FE87 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedImagesResponse.swift; sourceTree = "<group>"; };
 		D2CF4A3228BA0F630064FE87 /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
 		D2CF4A3D28BA40EB0064FE87 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D2CF4A3F28BA412E0064FE87 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -91,7 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2C1208C2DFB38820081B4E8 /* DogBreedContainer in Frameworks */,
 				D298AE8F2DFAE58E0094732B /* DogCore in Frameworks */,
+				D2C120862DFB35C00081B4E8 /* DogNetwork in Frameworks */,
 				D298AE972DFAEE550094732B /* DogUILib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +217,6 @@
 		D2CF4A2228BA00470064FE87 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D2CF4A4628BA450D0064FE87 /* Network */,
 				D2CF4AA128C49EAE0064FE87 /* CoreData */,
 			);
 			path = Service;
@@ -250,25 +247,6 @@
 				D2CF4A5928BA7D360064FE87 /* FavouritePicturesViewModel.swift */,
 			);
 			path = Favorites;
-			sourceTree = "<group>";
-		};
-		D2CF4A2F28BA05200064FE87 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A2828BA039A0064FE87 /* DogBreedResponse.swift */,
-				D2CF4A3028BA05A10064FE87 /* DogBreedImagesResponse.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D2CF4A4628BA450D0064FE87 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				D2CF4A2628BA03070064FE87 /* DogService.swift */,
-				D2CF4A2D28BA04080064FE87 /* Endpoint.swift */,
-				D2CF4A2F28BA05200064FE87 /* Model */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		D2CF4A7C28BFC9A90064FE87 /* Mock */ = {
@@ -311,6 +289,8 @@
 		D2FDBDB62DFABA6C006ADB44 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				D2C1208A2DFB38230081B4E8 /* DogBreedContainer */,
+				D2671A0F2DFB347D00320D6B /* DogNetwork */,
 				D298AE8A2DFACD140094732B /* DogUI */,
 				D298AE892DFACCF50094732B /* DogCore */,
 			);
@@ -457,14 +437,10 @@
 				D2CF49EF28B9FF770064FE87 /* BreedsViewController.swift in Sources */,
 				D2CF4A3328BA0F630064FE87 /* BreedsViewModel.swift in Sources */,
 				D2CF4A4528BA42070064FE87 /* FavouritePicturesViewController.swift in Sources */,
-				D2CF4A2E28BA04080064FE87 /* Endpoint.swift in Sources */,
 				D2CF4A4328BA41F90064FE87 /* BreedPicturesViewController.swift in Sources */,
 				D2CF4A5A28BA7D360064FE87 /* FavouritePicturesViewModel.swift in Sources */,
-				D2CF4A2728BA03070064FE87 /* DogService.swift in Sources */,
-				D2CF4A2928BA039A0064FE87 /* DogBreedResponse.swift in Sources */,
 				D2CF49F528B9FF770064FE87 /* DogBreed.xcdatamodeld in Sources */,
 				D2CF49EB28B9FF770064FE87 /* AppDelegate.swift in Sources */,
-				D2CF4A3128BA05A10064FE87 /* DogBreedImagesResponse.swift in Sources */,
 				D2CF49ED28B9FF770064FE87 /* SceneDelegate.swift in Sources */,
 				D2CF4A9E28C486FA0064FE87 /* BreedsDBModel+CoreDataProperties.swift in Sources */,
 				D2CF4AA328C49EFB0064FE87 /* CoreDataManager.swift in Sources */,
@@ -825,6 +801,14 @@
 		D298AE962DFAEE550094732B /* DogUILib */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DogUILib;
+		};
+		D2C120852DFB35C00081B4E8 /* DogNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DogNetwork;
+		};
+		D2C1208B2DFB38820081B4E8 /* DogBreedContainer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DogBreedContainer;
 		};
 /* End XCSwiftPackageProductDependency section */
 

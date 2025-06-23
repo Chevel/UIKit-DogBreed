@@ -11,6 +11,7 @@ import UIKit
 import Combine
 import DogData
 import DogCore
+import DogBreedContainer
 
 final class BreedsViewController: UIViewController {
     
@@ -34,7 +35,8 @@ final class BreedsViewController: UIViewController {
     }()
 
     // MARK: - Data
-
+    
+    private let dependencies: Dependencies
     private var subscriberTokens = Set<AnyCancellable>()
     private var viewModel: BreedsViewModel
     private lazy var dataSource: UITableViewDiffableDataSource<Section, Breed> = {
@@ -53,10 +55,12 @@ final class BreedsViewController: UIViewController {
         case breeds
     }
     
+
     // MARK: - Lifecycle
             
     init(dependencies: Dependencies) {
-        self.viewModel = BreedsViewModel(dataManager: dependencies.dataManager)
+        self.dependencies = dependencies
+        self.viewModel = BreedsViewModel(dataManager: dependencies.dataManager, dogService: dependencies.networkService)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -126,7 +130,6 @@ final class BreedsViewController: UIViewController {
     @objc private func favoritesPressed() {
         present(UINavigationController(rootViewController: FavouritePicturesViewController()), animated: true)
     }
-    
 }
 
 // MARK: - UITableViewDelegate
@@ -137,7 +140,13 @@ extension BreedsViewController: UITableViewDelegate {
         guard let breed = viewModel.breeds?[safe: indexPath.row] else {
             return
         }
-        navigationController?.pushViewController(BreedPicturesViewController(breedName: breed.name), animated: true)
+        navigationController?.pushViewController(
+            BreedPicturesViewController(
+                breedName: breed.name,
+                dependencies: dependencies
+            ),
+            animated: true
+        )
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

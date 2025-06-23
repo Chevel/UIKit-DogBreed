@@ -4,16 +4,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "DogUIPackage",
+    name: "DogNetwork",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "DogUILib",
-            targets: ["DogUIScreen", "DogUIComponents", "DogUIIcons", "DogUI"]
-        ),
+            name: "DogNetwork",
+            targets: ["DogNetwork"]
+        )
     ],
     dependencies: [
         .package(path: "../DogCore")
@@ -22,23 +22,14 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DogUIScreen"
-        ),
-        .target(
-            name: "DogUIComponents"
-        ),
-        .target(
-            name: "DogUIIcons"
-        ),
-        .target(
-            name: "DogUI",
+            name: "DogNetwork",
             dependencies: [
                 "DogCore"
             ]
         ),
         .testTarget(
-            name: "DogUITests",
-            dependencies: ["DogUIScreen", "DogUIComponents"]
+            name: "DogNetworkTests",
+            dependencies: ["DogNetwork"]
         )
     ]
 )

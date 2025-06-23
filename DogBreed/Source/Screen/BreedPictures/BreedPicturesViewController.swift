@@ -9,6 +9,9 @@
 import DogUI
 import UIKit
 import Combine
+import DogCore
+import DogData
+import DogBreedContainer
 
 final class BreedPicturesViewController: UIViewController, BreedPictureCellDisplayable {
 
@@ -61,8 +64,8 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
 
     // MARK: - Init
 
-    init(breedName: String) {
-        viewModel = BreedPicturesViewModel(breed: breedName)
+    init(breedName: String, dependencies: Dependencies) {
+        viewModel = BreedPicturesViewModel(breed: Breed(name: breedName), dogService: dependencies.networkService)
         super.init(nibName: nil, bundle: nil)
         title = breedName
     }
