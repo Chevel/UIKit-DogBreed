@@ -11,7 +11,7 @@ import DogCore
 import DogUIIcons
 import DogUIComponents
 
-public extension DogUI.BreedPictures {
+public extension DogUI.BreedPicture {
     
     final class CollectionViewCell: UICollectionViewCell {
 
@@ -177,7 +177,7 @@ public extension DogUI.BreedPictures {
 
 // MARK: - Mode
 
-public extension DogUI.BreedPictures.CollectionViewCell {
+public extension DogUI.BreedPicture.CollectionViewCell {
     
     struct ImageData {
         let name: String

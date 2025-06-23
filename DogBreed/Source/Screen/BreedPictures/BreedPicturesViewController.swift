@@ -38,7 +38,7 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(DogUI.BreedPictures.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier)
+        collectionView.register(DogUI.BreedPicture.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPicture.CollectionViewCell.identifier)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         return collectionView
     }()
@@ -61,6 +61,8 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
             return layoutSection
         }
     }
+    
+    private let detailsTransitionDelegate = ZoomTransitionDelegate()
 
     // MARK: - Init
 
@@ -132,6 +134,34 @@ extension BreedPicturesViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Task {
+            guard
+                let imageUrl = viewModel.imagesUrls[safe: indexPath.row],
+                let image = await ImageCache.shared.image(at: imageUrl)
+            else { return }
+
+            await MainActor.run {
+                let vc = DogUI.BreedPicture.DetailViewController(image: image)
+                
+                if #available(iOS 18.0, *) {
+                    vc.preferredTransition = .zoom(sourceViewProvider: { _ in
+                        collectionView.cellForItem(at: indexPath)
+                    })
+                    show(vc, sender: self)
+                } else {
+                    let cell = collectionView.cellForItem(at: indexPath)!
+                    let cellFrameInGlobalCoordinateSpace = cell.convert(cell.frame, to: view)
+                    detailsTransitionDelegate.sourceViewFrame = cellFrameInGlobalCoordinateSpace
+                    
+                    vc.modalPresentationStyle = .custom
+                    vc.transitioningDelegate = detailsTransitionDelegate
+                    present(vc, animated: true)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - UICollectionViewDelegate
@@ -151,9 +181,9 @@ extension BreedPicturesViewController: UICollectionViewDelegate {
 
 // MARK: - BreedPictureCollectionViewCellDelegate
 
-extension BreedPicturesViewController: DogUI.BreedPictures.CollectionViewCell.Delegate {
+extension BreedPicturesViewController: DogUI.BreedPicture.CollectionViewCell.Delegate {
     
-    func toggleFavourite(cell: DogUI.BreedPictures.CollectionViewCell) {
+    func toggleFavourite(cell: DogUI.BreedPicture.CollectionViewCell) {
         guard
             let path = collectionView.indexPath(for: cell),
             let imageUrl = viewModel.imagesUrls[safe: path.row]

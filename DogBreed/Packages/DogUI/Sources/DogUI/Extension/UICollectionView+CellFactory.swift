@@ -12,12 +12,12 @@ public protocol BreedPictureCellDisplayable: UIViewController {}
 
 public extension BreedPictureCellDisplayable {
     
-    func dequeueBreedPictureCell(for collectionView: UICollectionView, at indexPath: IndexPath) -> DogUI.BreedPictures.CollectionViewCell {
+    func dequeueBreedPictureCell(for collectionView: UICollectionView, at indexPath: IndexPath) -> DogUI.BreedPicture.CollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier,
+            withReuseIdentifier: DogUI.BreedPicture.CollectionViewCell.identifier,
             for: indexPath
-        ) as? DogUI.BreedPictures.CollectionViewCell else {
-            fatalError("⛔️ Error in \(#file) at \(#line) - \(DogUI.BreedPictures.CollectionViewCell.self) is not registered on \(self).")
+        ) as? DogUI.BreedPicture.CollectionViewCell else {
+            fatalError("⛔️ Error in \(#file) at \(#line) - \(DogUI.BreedPicture.CollectionViewCell.self) is not registered on \(self).")
         }
         return cell
     }
