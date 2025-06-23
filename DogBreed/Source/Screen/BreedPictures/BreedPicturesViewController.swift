@@ -61,6 +61,8 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
             return layoutSection
         }
     }
+    
+    private let detailsTransitionDelegate = ZoomTransitionDelegate()
 
     // MARK: - Init
 
@@ -131,6 +133,34 @@ extension BreedPicturesViewController: UICollectionViewDataSource {
         )
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        Task {
+            guard
+                let imageUrl = viewModel.imagesUrls[safe: indexPath.row],
+                let image = await ImageCache.shared.image(at: imageUrl)
+            else { return }
+
+            await MainActor.run {
+                let vc = DogUI.BreedPicture.DetailViewController(image: image)
+                
+                if #available(iOS 18.0, *) {
+                    vc.preferredTransition = .zoom(sourceViewProvider: { _ in
+                        collectionView.cellForItem(at: indexPath)
+                    })
+                    show(vc, sender: self)
+                } else {
+                    let cell = collectionView.cellForItem(at: indexPath)!
+                    let cellFrameInGlobalCoordinateSpace = cell.convert(cell.frame, to: view)
+                    detailsTransitionDelegate.sourceViewFrame = cellFrameInGlobalCoordinateSpace
+                    
+                    vc.modalPresentationStyle = .custom
+                    vc.transitioningDelegate = detailsTransitionDelegate
+                    present(vc, animated: true)
+                }
+            }
+        }
     }
 }
 
