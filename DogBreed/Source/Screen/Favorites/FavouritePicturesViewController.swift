@@ -26,7 +26,7 @@ final class FavouritePicturesViewController: UIViewController, BreedPictureCellD
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
-        collectionView.register(DogUI.BreedPictures.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier)
+        collectionView.register(DogUI.BreedPicture.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPicture.CollectionViewCell.identifier)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         return collectionView
     }()

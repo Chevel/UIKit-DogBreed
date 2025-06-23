@@ -38,7 +38,7 @@ final class BreedPicturesViewController: UIViewController, BreedPictureCellDispl
         collectionView.showsVerticalScrollIndicator = false
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(DogUI.BreedPictures.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPictures.CollectionViewCell.identifier)
+        collectionView.register(DogUI.BreedPicture.CollectionViewCell.self, forCellWithReuseIdentifier: DogUI.BreedPicture.CollectionViewCell.identifier)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: UICollectionViewCell.identifier)
         return collectionView
     }()
@@ -151,9 +151,9 @@ extension BreedPicturesViewController: UICollectionViewDelegate {
 
 // MARK: - BreedPictureCollectionViewCellDelegate
 
-extension BreedPicturesViewController: DogUI.BreedPictures.CollectionViewCell.Delegate {
+extension BreedPicturesViewController: DogUI.BreedPicture.CollectionViewCell.Delegate {
     
-    func toggleFavourite(cell: DogUI.BreedPictures.CollectionViewCell) {
+    func toggleFavourite(cell: DogUI.BreedPicture.CollectionViewCell) {
         guard
             let path = collectionView.indexPath(for: cell),
             let imageUrl = viewModel.imagesUrls[safe: path.row]

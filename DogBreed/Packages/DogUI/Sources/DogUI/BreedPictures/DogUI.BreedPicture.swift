@@ -9,5 +9,5 @@ import Foundation
 
 public extension DogUI {
 
-    enum BreedPictures {}
+    enum BreedPicture {}
 }
