@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  ZoomTransitionDelegate.swift
 //  DogUIPackage
 //
 //  Created by Matej on 19. 6. 25.

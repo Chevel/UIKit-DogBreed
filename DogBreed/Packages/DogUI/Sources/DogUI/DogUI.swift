@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  DogUI.swift
 //  DogUIPackage
 //
 //  Created by Matej on 12. 6. 25.
